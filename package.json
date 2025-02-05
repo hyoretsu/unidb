@@ -2,32 +2,45 @@
 	"name": "unidb",
 	"version": "1.0.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"build": "next build",
 		"dev": "next dev --turbo",
+		"format": "bun format:biome && bun format:eslint",
+		"format:biome": "biome check --diagnostic-level=error --write --unsafe",
+		"format:eslint": "eslint --quiet --fix",
 		"prepare": "git config --local core.hooksPath .githooks",
 		"start": "next start",
 		"tb": "tauri build",
 		"td": "tauri dev"
 	},
 	"lint-staged": {
-		"**/*.(js|jsx|json|jsonc|ts|tsx)": ["biome check --apply"]
+		"**/*.(css|graphql|js|jsx|json|jsonc|ts|tsx)": ["bun format:biome --no-errors-on-unmatched"],
+		"**/*.(js|jsx|ts|tsx)": ["bun format:eslint"]
 	},
 	"dependencies": {
-		"next": "^14.2.15",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1",
-		"sass": "^1.79.5"
+		"@vanilla-extract/css": "^1.17.1",
+		"next": "^15.1.6",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.9.3",
-		"@next/env": "^14.2.15",
-		"@tauri-apps/cli": "^2.0.3",
+		"@biomejs/biome": "^1.9.4",
+		"@eslint/js": "^9.19.0",
+		"@hyoretsu/tsconfig": "^1.0.1",
+		"@tauri-apps/cli": "^2.2.7",
 		"@tsconfig/next": "^2.0.3",
-		"@types/react": "^18.3.11",
-		"@types/react-dom": "^18.3.1",
-		"bun-types": "^1.1.30",
-		"lint-staged": "^15.2.10",
-		"typescript": "^5.6.3"
-	}
+		"@types/bun": "^1.2.2",
+		"@types/react": "^19.0.8",
+		"@types/react-dom": "^19.0.3",
+		"eslint": "^9.19.0",
+		"eslint-config-biome": "^1.9.4",
+		"eslint-plugin-jest": "^28.11.0",
+		"git-commit-msg-linter": "^5.0.8",
+		"lint-staged": "^15.4.3",
+		"sass": "^1.83.4",
+		"typescript": "^5.7.3",
+		"typescript-eslint": "^8.23.0"
+	},
+	"trustedDependencies": ["@biomejs/biome", "@parcel/watcher"]
 }

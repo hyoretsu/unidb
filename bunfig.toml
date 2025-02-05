@@ -1,0 +1,11 @@
+telemetry = false
+
+[install.scopes]
+bk-company-ltda = { token = "$NPM_TOKEN", url = "https://npm.pkg.github.com" }
+
+[run]
+bun = true
+
+[test]
+coverage = true
+coverageThreshold = { function = 1.0, line = 1.0, statement = 1.0 }

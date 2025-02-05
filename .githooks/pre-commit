@@ -1,4 +1,4 @@
 #!/bin/sh
 
+bunx --bun lint-staged
 git pull
-bunx lint-staged

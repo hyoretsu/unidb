@@ -1,0 +1,58 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"files": {
+		"ignoreUnknown": true
+	},
+	"formatter": {
+		"lineWidth": 110,
+		"useEditorconfig": true
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "asNeeded",
+			"trailingCommas": "all"
+		},
+		"parser": {
+			"unsafeParameterDecoratorsEnabled": true
+		}
+	},
+	"linter": {
+		"rules": {
+			"a11y": {
+				"noSvgWithoutTitle": "warn",
+				"useAltText": "warn",
+				"useButtonType": "warn",
+				"useHtmlLang": "warn",
+				"useKeyWithClickEvents": "off"
+			},
+			"complexity": {
+				"noForEach": "warn"
+			},
+			"correctness": {
+				"noUnusedPrivateClassMembers": "warn",
+				"noUnusedImports": "error",
+				"noUnusedVariables": "warn"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "warn"
+			},
+			"style": {
+				"noNonNullAssertion": "off",
+				"noDoneCallback": "error",
+				"noInferrableTypes": "error",
+				"noParameterAssign": "warn",
+				"useConsistentArrayType": "error",
+				"useConst": "warn",
+				"useImportType": "error",
+				"useSingleVarDeclarator": "off",
+				"useTemplate": "warn"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "warn",
+				"noExplicitAny": "off",
+				"noMisplacedAssertion": "error",
+				"noSkippedTests": "error"
+			}
+		}
+	}
+}

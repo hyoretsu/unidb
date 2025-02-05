@@ -1,26 +1,23 @@
-const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
+import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
-module.exports = async (phase, { defaultConfig }) => {
-	/** @type {import('next').NextConfig} */
-	const baseConf = {
+type NextConfigFn = (phase: string, options: { defaultConfig: NextConfig }) => NextConfig;
+
+const configFn: NextConfigFn = async (phase, { defaultConfig }) => {
+	const baseConf: NextConfig = {
 		eslint: {
 			ignoreDuringBuilds: true,
-		},
-		images: {
-			unoptimized: true,
 		},
 		output: "export",
 		productionBrowserSourceMaps: true,
 		reactStrictMode: true,
 		sassOptions: {
 			logger: {
-				warn: message => console.warn(message),
-				debug: message => console.log(message),
+				warn: (message: string) => console.warn(message),
+				debug: (message: string) => console.log(message),
 			},
 			silenceDeprecations: ["legacy-js-api"],
 		},
-		skipTrailingSlashRedirect: true,
-		swcMinify: true,
 		typescript: {
 			ignoreBuildErrors: true,
 		},
@@ -37,3 +34,5 @@ module.exports = async (phase, { defaultConfig }) => {
 
 	return baseConf;
 };
+
+export default configFn;

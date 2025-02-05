@@ -1,0 +1,11 @@
+{
+	"lang": "en-US",
+	"types": {
+		"build": false,
+		"bump": "Package updates.",
+		"change": "Simple changes that don't amount to a feature.",
+		"perf": false,
+		"temp": false
+	},
+	"validScopes": ["extension", "frontend", "frontend_shopify", "frontend_tiendanube"]
+}
